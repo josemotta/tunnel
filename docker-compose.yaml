@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  tunnel:
+    image: alpine:3.17
+    container_name: tunnel-1
+    command: >    
+      sh -c "apk add openssh-client &&
+      cd /home &&
+      ssh -N -L \
+      8182:encore-fan-development-instance-1.cubaxtzqr1qf.us-east-2.neptune.amazonaws.com:8182 \
+      ubuntu@192.0.138.9 \
+      -i /home/encore_main.pem &
+      tail -f /dev/null"
+    volumes:
+      - .:/home
+    environment:
+      - HOST=0.0.0.0
+      - ENCORE_MAIN=/home/encore_main.pem
