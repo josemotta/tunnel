@@ -2,7 +2,7 @@ FROM node:18.2.0-slim
 
 WORKDIR /home
 
-ARG ENCORE_MAIN
+ARG ENCORE_MAIN=default
 
 RUN sudo echo "$ENCORE_MAIN" > /home/encore_main.pem && \
     sudo chmod 400 /home/encore_main.pem 

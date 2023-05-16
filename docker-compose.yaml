@@ -17,4 +17,4 @@ services:
       - .:/home
     environment:
       - HOST=0.0.0.0
-      - ENCORE_MAIN=/home/encore_main.pem
+      - ENCORE_MAIN="nothing-here"
